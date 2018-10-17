@@ -28,13 +28,13 @@ class AddStudentVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
         activityIndicator.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
+        super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
     }
     
@@ -63,6 +63,9 @@ class AddStudentVC: UIViewController {
         let search = MKLocalSearch(request: request)
         search.start { (response, error) in
             if response == nil {
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.isHidden = true
+                
                 self.showAlert(title: "Invalid Location", message: "Unable to find location from string.  Please correct or refine location.", dismissHandler: nil)
             }
             
