@@ -32,7 +32,7 @@ class LoginVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
         
         subscribeToKeyboardNotifications()
         activityIndicator.isHidden = true
@@ -40,7 +40,7 @@ class LoginVC: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
+        super.viewWillDisappear(animated)
         
         unsubscribeFromKeyboardNotifications()
         
@@ -82,7 +82,7 @@ class LoginVC: UIViewController {
             return
         }
         
-        if error! == Errors.CredentialExpiredError {
+        if error! == Errors.CredentialExpired {
             return
         }
         

@@ -21,7 +21,7 @@ class ListVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+        super.viewDidAppear(animated)
         
         Parse.shared.getStudents(limit: 100, skip: 0, onComplete: {error in
             DispatchQueue.main.async(execute: {
