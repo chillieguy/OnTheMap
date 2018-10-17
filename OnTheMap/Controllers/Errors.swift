@@ -9,9 +9,9 @@
 import Foundation
 
 enum Errors: String {
-    case WrongCredentialError = "Account not found or invalid credentials."
-    case CredentialExpiredError = "Login expired. Please login again."
-    case NetworkError = "Please check your network and try again."
-    case ServerError = "Server messed up. Please contact developer."
-    case UnknownError = "The app is messed up. Please contact developer."
+    case CredentialError = "Account not found or wrong login information."
+    case CredentialExpired = "Please try logging in again."
+    case NetworkError = "No Network Available."
+    case ServerError = "Invalid Server Response."
+    case UnknownError = "Unknow Error.  Sorry I am not more helpful."
 }

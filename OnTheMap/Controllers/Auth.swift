@@ -21,7 +21,7 @@ class Auth: BaseAuthHandler {
         
         let authReponse = Data.shared.getUser()
         if authReponse == nil || (authReponse?.isExpired())! {
-            onComplete(Errors.CredentialExpiredError)
+            onComplete(Errors.CredentialExpired)
             return
         }
         
@@ -64,7 +64,7 @@ class Auth: BaseAuthHandler {
             } else if responseDict[Api.UdacityAuth.KEY_STATUS] != nil {
                 let status = responseDict[Api.UdacityAuth.KEY_STATUS] as! Int
                 if status == 403 {
-                    onComplete(Errors.WrongCredentialError)
+                    onComplete(Errors.CredentialError)
                     return
                 }
             } else {
